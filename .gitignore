@@ -1,0 +1,23 @@
+# Файлы базы данных и кеша
+*.sqlite3
+*.db
+__pycache__/
+*.py[cod]
+
+# Файлы окружения и виртуального окружения
+.env
+.venv/
+venv/
+env/
+
+# Логи и временные файлы
+*.log
+*.tmp
+
+# Статика и медиа (если используется Django)
+staticfiles/
+media/
+
+# IDE (если используете PyCharm, VSCode и т. д.)
+.idea/
+.vscode/

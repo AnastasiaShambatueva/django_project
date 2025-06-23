@@ -1,0 +1,51 @@
+{% extends "designer/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid ps-0 mt-3">
+    <div class="row mb-5 align-items-center">
+        <div class="col-12">
+            <div class="p-5 rounded shadow" style="background: linear-gradient(135deg, #e0f7f9, #b2ebf2); border-left: 8px solid #00bcd4;">
+                <h1 class="display-5 fw-bold mb-3" style="color: #0097a7;">
+                    Навыки, необходимые для UX/UI-дизайнера
+                </h1>
+                <p class="fs-5 mb-0" style="color: #006064;">
+                    Что должен уметь UX/UI-дизайнер: от базовых инструментов до продвинутых подходов в проектировании интерфейсов.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% for year, skills in skills_by_year.items %}
+    <div class="rounded shadow-sm p-4 mb-4" style="background-color: #f0fcfd; border-left: 8px solid #00bcd4;">
+        <h3 class="h2 mb-4 fw-bold" style="color: #0097a7;">
+            <i class="bi bi-info-circle-fill me-2"></i> {{ year }} год
+        </h3>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Навык</th>
+                    <th>Количество упоминаний</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in skills %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ item.skill }}</td>
+                    <td>{{ item.count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% empty %}
+    <p>Данные не найдены.</p>
+{% endfor %}
+
+
+{% endblock %}
